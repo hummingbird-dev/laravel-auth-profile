@@ -59,7 +59,7 @@ class AuthProfileController extends Controller
         // if input password exists in the request replace password in the user object
         if ($request["password"]) {
             $this->validate($request, [
-                'password' => 'min:8|required'
+                'password' => 'min:8|required|confirmed'
             ]);
             $user->password = bcrypt($request["password"]);
         }
